@@ -28,4 +28,5 @@ The finnish validator will accept input in the following formats:
 Source: http://en.wikipedia.org/wiki/National_identification_number#Finland
 
 PHP Equivalent: https://github.com/rickard2/luhnar
-Symfony validator: https://github.com/rickard2/luhnar-validator
+
+Symfony2 validator: https://github.com/rickard2/luhnar-validator
