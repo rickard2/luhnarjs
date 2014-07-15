@@ -1,4 +1,4 @@
-/*! luhnar - v1.0.1 - 2014-07-15
+/*! luhnar - v1.0.2 - 2014-07-15
 * https://github.com/rickard2/luhnarjs
 * Copyright (c) 2014 ; Licensed MIT */
 (function (exports) {
@@ -42,8 +42,20 @@
         // Remove dash, plus or A
         if (input.length === 11) {
             input = input.substr(0, 6) + input.substr(7, 3);
-        } else {
+        } else if (input.length === 10) {
             input = input.substr(0, 9);
+        } else {
+            return false;
+        }
+
+        var year = parseInt(input.substr(4, 2), 10);
+        var month = parseInt(input.substr(2, 2), 10) - 1;
+        var day = parseInt(input.substr(0, 2), 10);
+
+        var date = new Date(year, month, day);
+
+        if (date.getYear() !== year || date.getMonth() !== month || date.getDate() !== day) {
+            return false;
         }
 
         if (!input.match(/^\d+$/)) {

@@ -12,7 +12,8 @@ var data = [
     {"value": "311280-999f", "expected": false, "message": "11 digit invalid, 20th century, lowercase"},
     {"value": "311280a999f", "expected": false, "message": "11 digit invalid, 21st century, lowercase"},
     {"value": "8", "expected": false, "message": "single digit"},
-    {"value": "", "expected": false, "message": "empty string"}
+    {"value": "", "expected": false, "message": "empty string"},
+    {"value": "999999999f", "expected": false, "message": "invalid date"}
 ];
 
 module('Finland');
