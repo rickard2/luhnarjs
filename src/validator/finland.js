@@ -2,7 +2,7 @@
 
     "use strict";
 
-    var Finland = function (input) {
+    function finland(input) {
         var checkDigit = '0,1,2,3,4,5,6,7,8,9,a,b,c,d,e,f,h,j,k,l,m,n,p,r,s,t,u,v,w,x,y'.split(/,/);
 
         // Get the check digit
@@ -15,16 +15,22 @@
             input = input.substr(0, 9);
         }
 
-        if (!input.match(/^\d+/)) {
+        if (!input.match(/^\d+$/)) {
             return false;
         }
+
+        if (input.length !== 9) {
+            return false;
+        }
+
+        input = parseInt(input, 10);
 
         // Do the math
         var result = input % 31;
 
         return checkDigit[result] === check;
-    };
+    }
 
-    Luhnar.addValidator(Finland, 'fi');
+    Luhnar.addValidator(finland, 'fi');
 
 }(Luhnar));

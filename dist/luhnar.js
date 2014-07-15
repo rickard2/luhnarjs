@@ -1,4 +1,4 @@
-/*! luhnar - v1.0.0 - 2014-04-18
+/*! luhnar - v1.0.1 - 2014-07-15
 * https://github.com/rickard2/luhnarjs
 * Copyright (c) 2014 ; Licensed MIT */
 (function (exports) {
@@ -33,7 +33,7 @@
 
     "use strict";
 
-    var Finland = function (input) {
+    function finland(input) {
         var checkDigit = '0,1,2,3,4,5,6,7,8,9,a,b,c,d,e,f,h,j,k,l,m,n,p,r,s,t,u,v,w,x,y'.split(/,/);
 
         // Get the check digit
@@ -46,24 +46,30 @@
             input = input.substr(0, 9);
         }
 
-        if (!input.match(/^\d+/)) {
+        if (!input.match(/^\d+$/)) {
             return false;
         }
+
+        if (input.length !== 9) {
+            return false;
+        }
+
+        input = parseInt(input, 10);
 
         // Do the math
         var result = input % 31;
 
         return checkDigit[result] === check;
-    };
+    }
 
-    Luhnar.addValidator(Finland, 'fi');
+    Luhnar.addValidator(finland, 'fi');
 
 }(Luhnar));
 (function (Luhnar) {
 
     "use strict";
 
-    var Sweden = function (input) {
+    function sweden(input) {
         // Remove dash and plus
         input = input.replace('-', '').replace('+', '');
 
@@ -112,8 +118,8 @@
         }
 
         return (((check + result) % 10) === 0);
-    };
+    }
 
-    Luhnar.addValidator(Sweden, 'se');
+    Luhnar.addValidator(sweden, 'se');
 
 }(Luhnar));

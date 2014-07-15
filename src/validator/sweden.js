@@ -2,7 +2,7 @@
 
     "use strict";
 
-    var Sweden = function (input) {
+    function sweden(input) {
         // Remove dash and plus
         input = input.replace('-', '').replace('+', '');
 
@@ -51,8 +51,8 @@
         }
 
         return (((check + result) % 10) === 0);
-    };
+    }
 
-    Luhnar.addValidator(Sweden, 'se');
+    Luhnar.addValidator(sweden, 'se');
 
 }(Luhnar));
